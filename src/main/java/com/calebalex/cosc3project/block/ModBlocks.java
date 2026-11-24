@@ -2,6 +2,8 @@ package com.calebalex.cosc3project.block;
 
 import com.calebalex.cosc3project.cosc3project;
 import com.calebalex.cosc3project.item.ModItems;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
@@ -33,6 +35,9 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
 
+    public static ResourceKey<Block> getRK(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);

@@ -1,5 +1,6 @@
 package com.calebalex.cosc3project;
 
+import com.calebalex.cosc3project.datagen.ModBlockTagsProvider;
 import com.calebalex.cosc3project.datagen.ModModelProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -16,8 +17,10 @@ public class PrimDataGen {
     public static void gatherClientData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
+        var lookupProvider = event.getWorldLookupProvider();
 
         //Run the json generator
         generator.addProvider(true, new ModModelProvider(packOutput));
+        generator.addProvider(true, new ModBlockTagsProvider(packOutput, lookupProvider));
     }
 }

@@ -1,0 +1,8 @@
+{
+  "values": [
+    "cosc3project:azurite_block",
+    "cosc3project:raw_azurite_block",
+    "cosc3project:azurite_ore",
+    "cosc3project:azurite_deepslate_ore"
+  ]
+}

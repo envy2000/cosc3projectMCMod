@@ -14,6 +14,8 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import com.calebalex.cosc3project.item.ModItems;
+import com.calebalex.cosc3project.block.ModBlocks;
+import com.calebalex.cosc3project.creativemodetab.ModCreativeModeTabs;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(cosc3project.MODID)
@@ -23,15 +25,6 @@ public class cosc3project {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-//    // Creates a creative tab with the id "cosc3project:example_tab" for the example item, that is placed after the combat tab
-//    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-//            .title(Component.translatable("itemGroup.cosc3project")) //The language key for the title of your CreativeModeTab
-//            .withTabsBefore(CreativeModeTabs.COMBAT)
-//            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-//            .displayItems((parameters, output) -> {
-//                output.accept(EXAMPLE_ITEM.get());// Add the example item to the tab. For your own tabs, this method is preferred over the event
-//            }).build());
-
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public cosc3project(IEventBus modEventBus, ModContainer modContainer) {
@@ -39,9 +32,10 @@ public class cosc3project {
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so tabs get registered
-//        CREATIVE_MODE_TABS.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (cosc3project) to respond directly to events.
@@ -56,6 +50,7 @@ public class cosc3project {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        // This is a bunch of stuff from the template that we're not using
 //        // Some common setup code
 //        LOGGER.info("HELLO FROM COMMON SETUP");
 //
@@ -68,11 +63,14 @@ public class cosc3project {
 //        Config.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
     }
 
-    // Add the example block item to the building blocks tab
+    // Add items to the vanilla creative tabs
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.AZURITE);
             event.accept(ModItems.RAW_AZURITE);
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.AZURITE_BLOCK);
         }
     }
 

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "cosc3project:block/azurite_block"
+  }
+}

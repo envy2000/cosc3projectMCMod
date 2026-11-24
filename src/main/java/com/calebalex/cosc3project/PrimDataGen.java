@@ -7,6 +7,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
+//The mod should, theoretically, never run any of this code. This code is for use
+//in our development environment to systematically generate repetitive pieces of
+//code that the mod WILL use
 @EventBusSubscriber(modid = cosc3project.MODID)
 public class PrimDataGen {
     @SubscribeEvent
@@ -14,6 +17,7 @@ public class PrimDataGen {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
 
+        //Run the json generator
         generator.addProvider(true, new ModModelProvider(packOutput));
     }
 }

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "cosc3project:block/raw_azurite_block"
+    }
+  }
+}

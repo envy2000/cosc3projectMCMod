@@ -9,5 +9,7 @@
   "cosc3project.configuration.items": "Item List",
   "cosc3project.configuration.logDirtBlock": "Log Dirt Block",
   "cosc3project.configuration.magicNumberIntroduction": "Magic Number Text",
-  "cosc3project.configuration.magicNumber": "Magic Number"
+  "cosc3project.configuration.magicNumber": "Magic Number",
+
+  "item.cosc3project.bismuth": "Bismuth"
 }

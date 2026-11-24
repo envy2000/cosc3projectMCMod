@@ -1,0 +1,13 @@
+{
+  "itemGroup.cosc3project": "Example Mod Tab",
+  "block.cosc3project.example_block": "Example Block",
+  "item.cosc3project.example_item": "Example Item",
+
+  "cosc3project.configuration.title": "cosc3project Configs",
+  "cosc3project.configuration.section.cosc3project.common.toml": "cosc3project Configs",
+  "cosc3project.configuration.section.cosc3project.common.toml.title": "cosc3project Configs",
+  "cosc3project.configuration.items": "Item List",
+  "cosc3project.configuration.logDirtBlock": "Log Dirt Block",
+  "cosc3project.configuration.magicNumberIntroduction": "Magic Number Text",
+  "cosc3project.configuration.magicNumber": "Magic Number"
+}
